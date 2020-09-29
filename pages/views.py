@@ -1,11 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Team
- 
+from cars.models import Car  
  
 def home(request):
     teams = Team.objects.all()
-    data = {'teams': teams,}
+    feature_cars = Car.objects.order_by('-created_date').filter(is_featured=True)
+    latest_cars = Car.objects.order_by('-created_date')
+    data = {
+        'teams': teams,
+        'feature_cars' : feature_cars,
+        'latest_cars' : latest_cars, 
+        }
     
     return render(request, 'pages/index.html', data)
 

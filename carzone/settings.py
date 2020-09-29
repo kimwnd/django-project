@@ -32,13 +32,16 @@ ALLOWED_HOSTS = ['192.168.9.93', '14.45.99.196','localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'pages.apps.PagesConfig',
+    'cars.apps.CarsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pages.apps.PagesConfig'
+    'ckeditor',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -122,7 +125,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'carzon/static'),
+    os.path.join(BASE_DIR, 'carzone/static'),
 ]
 
 # Media setting
